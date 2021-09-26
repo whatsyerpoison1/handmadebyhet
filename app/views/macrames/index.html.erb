@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Macrames</h1>
+  <div class="row">
+    <% @macrames.each do |macrame| %>
+      <div class="col-6 col-md-4">
+        <div class="card">
+          <%= image_tag macrame.photo_url , class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= macrame.name %></h5>
+            <p class="card-text"><%= macrame.category.name %></p>
+            <p>Amount: <%= humanized_money_with_symbol(macrame.price) %></p>
+            <%= link_to "More details", macrame_path(macrame), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
